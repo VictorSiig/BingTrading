@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="7"
@@ -25,29 +26,27 @@
 
             <ImageButton
                 android:id="@+id/home_button"
-                android:src="@drawable/baseline_home_24"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:contentDescription="@string/home_button" />
+                android:contentDescription="@string/home_button"
+                android:src="@drawable/baseline_home_24" />
 
             <ImageButton
                 android:id="@+id/create_listing_button"
-                android:src="@drawable/baseline_add_circle_24"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/create_listing_button"
-                />
+                android:src="@drawable/baseline_add_circle_24" />
 
             <ImageButton
                 android:id="@+id/profile_button"
-                android:src="@drawable/baseline_person_outline_24"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/profile_button"
-                />
+                android:src="@drawable/baseline_person_outline_24" />
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 </LinearLayout>

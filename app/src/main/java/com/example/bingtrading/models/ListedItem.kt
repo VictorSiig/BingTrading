@@ -6,7 +6,7 @@ data class ListedItem(
     val price: Double,
     val sellerEmail: String,
     val sellerPhone: Int,
-    val time: Int,
+    val time: Long,
     val pictureUrl: String
 ) : java.io.Serializable {
 
@@ -15,7 +15,7 @@ data class ListedItem(
         price: Double,
         sellerEmail: String,
         sellerPhone: Int,
-        time: Int,
+        time: Long,
         pictureUrl: String
     ) : this( -1, description, price, sellerEmail, sellerPhone, time, pictureUrl)
 
@@ -23,3 +23,8 @@ data class ListedItem(
      return "$id,$description,$price,$sellerEmail,$sellerPhone,$time"
     }
 }
+
+data class ListedItemShort(
+    val description: String,
+    val price: Double
+)

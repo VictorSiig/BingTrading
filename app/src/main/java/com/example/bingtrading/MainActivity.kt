@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bingtrading.recycleview.Datasource
 import com.example.bingtrading.recycleview.MyAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bingtrading.models.ListedItemShort
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,11 +17,8 @@ class MainActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         val listedItemList = Datasource(this).getItemsList()
 
-
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-
-        recyclerView.adapter = MyAdapter(listedItemList)
     }
 }
 

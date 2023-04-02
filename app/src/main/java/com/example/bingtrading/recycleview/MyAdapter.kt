@@ -7,29 +7,40 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bingtrading.R
 
-class MyAdapter(private val itemList: Array<String>) :
-    RecyclerView.Adapter<MyAdapter.ItemViewHolder>() {
-
-    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private val listedItemTextView: TextView = itemView.findViewById(R.id.item_text)
-        fun bind(word: String) {
-            listedItemTextView.text = word
-        }
+class MyAdapter<T>(
+    private val itemList: List<T>,
+    private val onItemClicked: (position: Int) -> Unit) : RecyclerView.Adapter<MyAdapter.ItemViewHolder>() {
+    override fun getItemCount(): Int {
+        return itemList.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.listed_item_item, parent, false)
 
-        return ItemViewHolder(view)
-    }
-
-    override fun getItemCount(): Int {
-        return itemList.size
+        return ItemViewHolder(view, onItemClicked)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.bind(itemList[position])
+        // holder.bind(itemList[position])
+        holder.listedItemTextView.text = itemList[position].toString()
+    }
+
+    class ItemViewHolder(itemView: View, private val onItemClicked: (position: Int) -> Unit) :
+        RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        val listedItemTextView: TextView = itemView.findViewById(R.id.item_text)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(view: View) {
+            val position = bindingAdapterPosition
+
+            onItemClicked(position)
+        }
+        // fun bind(word: String) {
+        //     listedItemTextView.text = word
+        // }
     }
 }

@@ -2,23 +2,23 @@ package com.example.bingtrading
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
-import com.example.bingtrading.recycleview.Datasource
-import com.example.bingtrading.recycleview.MyAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.bingtrading.models.ListedItemShort
+import androidx.activity.viewModels
+import com.example.bingtrading.databinding.ActivityMainBinding
+import com.example.bingtrading.models.ListedItemsViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var binding: ActivityMainBinding
+    private val listedItemsViewModel: ListedItemsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
-        val listedItemList = Datasource(this).getItemsList()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
+        listedItemsViewModel.updateMessageLiveData.observe(this) { message ->
+            Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
+        }
     }
 }
 

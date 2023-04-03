@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ListedItemsRepository {
     private val url = "https://anbo-salesitems.azurewebsites.net/api/"
 
-    private val bingTradingService: BingTradingService = TODO()
+    private val bingTradingService: BingTradingService
     val listedItemLiveData: MutableLiveData<List<ListedItem>> = MutableLiveData<List<ListedItem>>()
     val errorMessageLiveData: MutableLiveData<String> = MutableLiveData()
     val updateMessageLiveData: MutableLiveData<String> = MutableLiveData()
@@ -26,7 +26,7 @@ class ListedItemsRepository {
         getAllListedItems()
     }
 
-    private fun getAllListedItems() {
+    fun getAllListedItems() {
         bingTradingService.getAllListedItems().enqueue(object : Callback<List<ListedItem>> {
             override fun onResponse(call: Call<List<ListedItem>>, response: Response<List<ListedItem>>) {
                 if (response.isSuccessful) {

@@ -1,20 +1,22 @@
 package com.example.bingtrading.models
 
+import java.io.Serializable
+
 data class ListedItem(
     val id: Int,
     val description: String,
     val price: Double,
     val sellerEmail: String,
-    val sellerPhone: Int,
+    val sellerPhone: Long,
     val time: Long,
     val pictureUrl: String
-) : java.io.Serializable {
+) : Serializable {
 
     constructor(
         description: String,
         price: Double,
         sellerEmail: String,
-        sellerPhone: Int,
+        sellerPhone: Long,
         time: Long,
         pictureUrl: String
     ) : this( -1, description, price, sellerEmail, sellerPhone, time, pictureUrl)

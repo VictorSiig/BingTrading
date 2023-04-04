@@ -1,6 +1,7 @@
 package com.example.bingtrading.models
 
 import java.io.Serializable
+import kotlin.reflect.typeOf
 
 data class ListedItem(
     val id: Int,
@@ -9,7 +10,8 @@ data class ListedItem(
     val sellerEmail: String,
     val sellerPhone: Long,
     val time: Long,
-    val pictureUrl: String
+    val pictureUrl: String,
+    var displayType: String? = null
 ) : Serializable {
 
     constructor(
@@ -19,14 +21,14 @@ data class ListedItem(
         sellerPhone: Long,
         time: Long,
         pictureUrl: String
-    ) : this( -1, description, price, sellerEmail, sellerPhone, time, pictureUrl)
+    ) : this(-1, description, price, sellerEmail, sellerPhone, time, pictureUrl)
 
     override fun toString(): String {
-     return "$id,$description,$price,$sellerEmail,$sellerPhone,$time"
+        return when (displayType) {
+            "description" -> "$description"
+            "price" -> "$price"
+            else -> "$id, $description, $price, $sellerEmail,$sellerPhone, $time, $pictureUrl"
+        }
+        //return "$id, $description, $price, $sellerEmail,$sellerPhone, $time, $pictureUrl"
     }
 }
-
-data class ListedItemShort(
-    val description: String,
-    val price: Double
-)

@@ -9,20 +9,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.bingtrading.databinding.FragmentFirstBinding
+import com.example.bingtrading.databinding.FragmentFourthBinding
 import com.example.bingtrading.models.ListedItemsViewModel
 import com.example.bingtrading.models.MyAdapter
 
-class FirstFragment : Fragment() {
-
-    private var _binding: FragmentFirstBinding? = null
+class FourthFragment : Fragment() {
+    private var _binding: FragmentFourthBinding? = null
     private val binding get() = _binding!!
     private val listedItemsViewModel: ListedItemsViewModel by activityViewModels()
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentFourthBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,10 +29,11 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         listedItemsViewModel.listedItemsLiveData.observe(viewLifecycleOwner) { items ->
-            binding.recyclerView.visibility = if (items == null) View.GONE else View.VISIBLE
+            binding.recyclerViewProfile.visibility = if (items == null) View.GONE else View.VISIBLE
             if (items != null) {
                 val adapter = MyAdapter(items) { position ->
-                    val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(position)
+                    val action =
+                        FirstFragmentDirections.actionFirstFragmentToSecondFragment(position)
                     findNavController().navigate(action)
                 }
                 var columns = 1
@@ -44,24 +44,18 @@ class FirstFragment : Fragment() {
                     columns = 1
                 }
 
-                binding.recyclerView.layoutManager = GridLayoutManager(this.context, columns)
+                binding.recyclerViewProfile.layoutManager = GridLayoutManager(this.context, columns)
 
-                binding.recyclerView.adapter = adapter
+                binding.recyclerViewProfile.adapter = adapter
             }
-        }
 
-        listedItemsViewModel.errorMessageLiveData.observe(viewLifecycleOwner) {errorMessage ->
-            binding.textviewMessage.text = errorMessage
-        }
+            binding.homeButton.setOnClickListener {
+                findNavController().navigate(R.id.action_fourthFragment_to_FirstFragment)
+            }
 
-        listedItemsViewModel.reload()
-
-        binding.swiperefresh.setOnRefreshListener {
-            listedItemsViewModel.reload()
-            binding.swiperefresh.isRefreshing = false
-        }
-        binding.profileButton.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_fourthFragment)
+            binding.buttonLogout.setOnClickListener {
+                findNavController().navigate(R.id.action_fourthFragment_to_thirdFragment)
+            }
         }
     }
 }

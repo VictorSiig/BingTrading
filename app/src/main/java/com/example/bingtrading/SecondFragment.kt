@@ -10,12 +10,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.bingtrading.databinding.FragmentSecondBinding
 import com.example.bingtrading.models.ListedItemsViewModel
 
-
 class SecondFragment : Fragment() {
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
     private val listedItemsViewModel: ListedItemsViewModel by activityViewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +42,10 @@ class SecondFragment : Fragment() {
 
         binding.homeButton.setOnClickListener {
             findNavController().popBackStack()
+        }
+
+        binding.profileButton.setOnClickListener {
+            findNavController().navigate(R.id.action_secondFragment_to_fourthFragment)
         }
     }
 }

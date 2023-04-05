@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#BFD5D6D6"
+                android:backgroundTint="#454545"
                 android:contentDescription="@string/home_button"
                 android:src="@drawable/baseline_home_24" />
 

@@ -34,7 +34,8 @@ class FirstFragment : Fragment() {
             binding.recyclerView.visibility = if (items == null) View.GONE else View.VISIBLE
             if (items != null) {
                 val adapter = MyAdapter(items) { position ->
-                    findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+                    val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(position)
+                    findNavController().navigate(action)
                 }
                 var columns = 1
                 val currentOrientation = this.resources.configuration.orientation
@@ -59,11 +60,6 @@ class FirstFragment : Fragment() {
         binding.swiperefresh.setOnRefreshListener {
             listedItemsViewModel.reload()
             binding.swiperefresh.isRefreshing = false
-        }
-
-        fun onDestroyView() {
-            super.onDestroyView()
-            _binding = null
         }
     }
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?><!-- androidx.cardview.widget.CardView -->
+<!-- https://material.io/components/cards/android#using-cards -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profile_item_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:checkable="true"
+    android:clickable="true"
+    app:cardBackgroundColor="@color/purple_200"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp"
+    app:cardMaxElevation="5dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/profile_item_description_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/card"
+            android:textStyle="bold" />
+
+            <Space
+                android:id="@+id/space_card"
+                android:layout_width="0dp"
+                android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/profile_item_price_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/some_text"
+            android:textColor="#311B92"
+            android:textStyle="italic" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageButton
+            android:id="@+id/delete_item_button"
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/baseline_delete_outline_24"
+            android:contentDescription="@string/button_to_delete_personal_listing" />
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

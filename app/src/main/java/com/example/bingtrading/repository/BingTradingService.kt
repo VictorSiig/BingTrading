@@ -11,6 +11,6 @@ interface BingTradingService {
     @POST("SalesItems")
     fun listItem(@Body listedItem: ListedItem): Call<ListedItem>
 
-    @DELETE("SalesItems")
+    @DELETE("SalesItems/{id}")
     fun deleteListedItem(@Path("id") id: Int): Call<ListedItem>
 }

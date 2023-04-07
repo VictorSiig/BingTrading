@@ -2,16 +2,16 @@ package com.example.bingtrading
 
 import android.content.res.Configuration
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.bingtrading.databinding.FragmentFourthBinding
 import com.example.bingtrading.models.ListedItemsViewModel
-import com.example.bingtrading.models.MyAdapter
+import com.example.bingtrading.models.MyAdapterProfile
 
 class FourthFragment : Fragment() {
     private var _binding: FragmentFourthBinding? = null
@@ -20,7 +20,7 @@ class FourthFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFourthBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -31,9 +31,9 @@ class FourthFragment : Fragment() {
         listedItemsViewModel.listedItemsLiveData.observe(viewLifecycleOwner) { items ->
             binding.recyclerViewProfile.visibility = if (items == null) View.GONE else View.VISIBLE
             if (items != null) {
-                val adapter = MyAdapter(items) { position ->
+                val adapter = MyAdapterProfile(items) { position ->
                     val action =
-                        FirstFragmentDirections.actionFirstFragmentToSecondFragment(position)
+                        FourthFragmentDirections.actionFourthFragmentToSecondFragment(position)
                     findNavController().navigate(action)
                 }
                 var columns = 1
@@ -47,6 +47,10 @@ class FourthFragment : Fragment() {
                 binding.recyclerViewProfile.layoutManager = GridLayoutManager(this.context, columns)
 
                 binding.recyclerViewProfile.adapter = adapter
+
+                adapter.setOnDeleteItemClickListener { item ->
+                    listedItemsViewModel.delete(item.id)
+                }
             }
 
             binding.homeButton.setOnClickListener {

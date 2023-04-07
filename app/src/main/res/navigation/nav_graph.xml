@@ -52,5 +52,11 @@
         <action
             android:id="@+id/action_fourthFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_fourthFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer" />
     </fragment>
 </navigation>

@@ -28,4 +28,5 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="button_to_delete_personal_listing">Button to delete personal listing</string>
 </resources>

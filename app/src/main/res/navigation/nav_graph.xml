@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_fourthFragment"
             app:destination="@id/fourthFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -31,6 +34,9 @@
         <action
             android:id="@+id/action_secondFragment_to_fourthFragment"
             app:destination="@id/fourthFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment" />
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
@@ -58,5 +64,20 @@
         <argument
             android:name="position"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_fourthFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fifthFragment"
+        android:name="com.example.bingtrading.FifthFragment"
+        android:label="fragment_fifth"
+        tools:layout="@layout/fragment_fifth" >
+        <action
+            android:id="@+id/action_fifthFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_fifthFragment_to_fourthFragment"
+            app:destination="@id/fourthFragment" />
     </fragment>
 </navigation>

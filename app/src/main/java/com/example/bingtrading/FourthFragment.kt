@@ -57,6 +57,10 @@ class FourthFragment : Fragment() {
                 findNavController().navigate(R.id.action_fourthFragment_to_FirstFragment)
             }
 
+            binding.createListingButton.setOnClickListener {
+                findNavController().navigate(R.id.action_fourthFragment_to_fifthFragment)
+            }
+
             binding.buttonLogout.setOnClickListener {
                 findNavController().navigate(R.id.action_fourthFragment_to_thirdFragment)
             }

@@ -44,6 +44,10 @@ class SecondFragment : Fragment() {
             findNavController().popBackStack()
         }
 
+        binding.createListingButton.setOnClickListener {
+            findNavController().navigate(R.id.action_secondFragment_to_fifthFragment)
+        }
+
         binding.profileButton.setOnClickListener {
             findNavController().navigate(R.id.action_secondFragment_to_fourthFragment)
         }

@@ -63,5 +63,9 @@ class FirstFragment : Fragment() {
         binding.profileButton.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_fourthFragment)
         }
+
+        binding.createListingButton.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_fifthFragment)
+        }
     }
 }

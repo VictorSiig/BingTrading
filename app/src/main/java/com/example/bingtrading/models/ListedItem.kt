@@ -6,9 +6,9 @@ import kotlin.reflect.typeOf
 data class ListedItem(
     val id: Int,
     val description: String,
-    val price: Double,
+    val price: Int,
     val sellerEmail: String,
-    val sellerPhone: Long,
+    val sellerPhone: String,
     val time: Long,
     val pictureUrl: String,
     var displayType: String? = null
@@ -16,9 +16,9 @@ data class ListedItem(
 
     constructor(
         description: String,
-        price: Double,
+        price: Int,
         sellerEmail: String,
-        sellerPhone: Long,
+        sellerPhone: String,
         time: Long,
         pictureUrl: String
     ) : this(-1, description, price, sellerEmail, sellerPhone, time, pictureUrl)

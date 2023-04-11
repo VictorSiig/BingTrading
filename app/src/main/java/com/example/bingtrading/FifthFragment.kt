@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bingtrading.databinding.FragmentFifthBinding
+import com.example.bingtrading.models.ListedItem
 import com.example.bingtrading.models.ListedItemsViewModel
 
 class FifthFragment : Fragment() {
@@ -29,15 +30,24 @@ class FifthFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val description: String = binding.editTextDescription.toString()
-        val price: Double = binding.editTextPrice.toString().toDouble()
-        val pictureUrl: String = binding.editTextPictureUrl.toString()
-        val email: String = binding.editTextEmail.toString()
-        val phone: Long = binding.editTextPhone.toString().toLong()
-        val time: Long = System.currentTimeMillis()
+
 
         binding.addListingButton.setOnClickListener{
-            TODO()
+            val description = binding.editTextDescription.text.toString()
+            var price = 0
+            val sellerEmail = binding.editTextEmail.text.toString()
+            val sellerPhone = binding.editTextPhone.text.toString()
+            val time = System.currentTimeMillis()
+            val pictureUrl = binding.editTextPictureUrl.text.toString()
+
+            val priceText = binding.editTextPrice.text.toString()
+            if(priceText.isNotEmpty()) price = priceText.toInt() else 0
+
+            val newListing = ListedItem(description,price,sellerEmail,sellerPhone,time,pictureUrl)
+
+            listedItemsViewModel.add(newListing)
+
+            findNavController().navigate(R.id.action_fifthFragment_to_fourthFragment)
         }
         binding.homeButton.setOnClickListener {
             findNavController().navigate(R.id.action_fifthFragment_to_FirstFragment)

@@ -1,6 +1,7 @@
 package com.example.bingtrading.models
 
 import java.io.Serializable
+import java.text.DateFormat
 import kotlin.reflect.typeOf
 
 data class ListedItem(
@@ -30,5 +31,10 @@ data class ListedItem(
             else -> "$id, $description, $price, $sellerEmail,$sellerPhone, $time, $pictureUrl"
         }
         //return "$id, $description, $price, $sellerEmail,$sellerPhone, $time, $pictureUrl"
+    }
+
+    fun humanTime(): String {
+        val formatter = DateFormat.getDateInstance()
+        return formatter.format(time * 1000L)
     }
 }

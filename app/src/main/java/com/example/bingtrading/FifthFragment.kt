@@ -37,7 +37,7 @@ class FifthFragment : Fragment() {
             var price = 0
             val sellerEmail = binding.editTextEmail.text.toString()
             val sellerPhone = binding.editTextPhone.text.toString()
-            val time = System.currentTimeMillis()
+            val time = System.currentTimeMillis()/1000
             val pictureUrl = binding.editTextPictureUrl.text.toString()
 
             val priceText = binding.editTextPrice.text.toString()

@@ -36,6 +36,7 @@ class SecondFragment : Fragment() {
             return
         }
         binding.textviewDescription.text = listedItem.description
+        binding.textviewTime.text = listedItem.humanTime()
         binding.textviewPrice.text = listedItem.price.toString()
         binding.textviewSellerEmail.text = listedItem.sellerEmail
         binding.textviewSellerPhone.text = listedItem.sellerPhone.toString()

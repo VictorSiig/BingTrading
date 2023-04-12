@@ -14,4 +14,12 @@
     <string name="register">Register</string>
     <string name="button_to_delete_personal_listing">Button to delete personal listing</string>
     <string name="create">Create</string>
+    <string name="sort">Sort</string>
+
+    <array name="sortings">
+        <item>Title ascending</item>
+        <item>Title descending</item>
+        <item>Price ascending</item>
+        <item>Price descending</item>
+    </array>
 </resources>

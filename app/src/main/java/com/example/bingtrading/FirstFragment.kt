@@ -60,6 +60,16 @@ class FirstFragment : Fragment() {
             listedItemsViewModel.reload()
             binding.swiperefresh.isRefreshing = false
         }
+
+        binding.buttonSort.setOnClickListener {
+            when (binding.spinnerSorting.selectedItemPosition) {
+                0 -> listedItemsViewModel.sortByTitle()
+                1 -> listedItemsViewModel.sortByTitleDescending()
+                2 -> listedItemsViewModel.sortByPrice()
+                3 -> listedItemsViewModel.sortByPriceDescending()
+            }
+        }
+
         binding.profileButton.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_fourthFragment)
         }

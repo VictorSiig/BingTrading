@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingTop="200dp"
     tools:context=".ThirdFragment">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/authentication"
+        android:layout_gravity="center"
+        android:text="@string/title"
         android:textSize="30sp" />
 
     <EditText
@@ -34,7 +36,8 @@
         android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login" />
+        android:text="@string/login"
+        />
 
     <Button
         android:id="@+id/button_register"

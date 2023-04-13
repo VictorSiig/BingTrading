@@ -28,7 +28,10 @@ class ListedItemsRepository {
 
     fun getAllListedItems() {
         bingTradingService.getAllListedItems().enqueue(object : Callback<List<ListedItem>> {
-            override fun onResponse(call: Call<List<ListedItem>>, response: Response<List<ListedItem>>) {
+            override fun onResponse(
+                call: Call<List<ListedItem>>,
+                response: Response<List<ListedItem>>
+            ) {
                 if (response.isSuccessful) {
                     val b: List<ListedItem>? = response.body()
                     listedItemLiveData.postValue(b!!)
@@ -108,9 +111,10 @@ class ListedItemsRepository {
     fun filterByDescription(description: String) {
         if (description.isBlank()) {
             getAllListedItems()
-        }else {
-            listedItemLiveData.value = listedItemLiveData.value?.filter { listedItem -> listedItem.description.contains(description) }
-            // TODO: bug fix: listedItemLiveData.value keeps getting smaller for each filter
+        } else {
+            listedItemLiveData.value = listedItemLiveData.value?.filter { listedItem ->
+                listedItem.description.contains(description)
+            }
         }
     }
 }

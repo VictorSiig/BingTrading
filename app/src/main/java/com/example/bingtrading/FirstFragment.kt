@@ -63,7 +63,7 @@ class FirstFragment : Fragment() {
 
         binding.buttonSort.setOnClickListener {
             when (binding.spinnerSorting.selectedItemPosition) {
-                0 -> listedItemsViewModel.sortByTitle()
+                0 -> listedItemsViewModel.sortByDescription()
                 1 -> listedItemsViewModel.sortByTitleDescending()
                 2 -> listedItemsViewModel.sortByPrice()
                 3 -> listedItemsViewModel.sortByPriceDescending()

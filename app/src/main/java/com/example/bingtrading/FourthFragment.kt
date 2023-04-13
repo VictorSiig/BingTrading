@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.bingtrading.databinding.FragmentFourthBinding
 import com.example.bingtrading.models.ListedItemsViewModel
 import com.example.bingtrading.models.MyAdapterProfile
+import com.google.firebase.auth.FirebaseAuth
 
 class FourthFragment : Fragment() {
     private var _binding: FragmentFourthBinding? = null
@@ -30,8 +31,13 @@ class FourthFragment : Fragment() {
 
         listedItemsViewModel.listedItemsLiveData.observe(viewLifecycleOwner) { items ->
             binding.recyclerViewProfile.visibility = if (items == null) View.GONE else View.VISIBLE
-            if (items != null) {
-                val adapter = MyAdapterProfile(items) { position ->
+            val auth = FirebaseAuth.getInstance()
+            val currentUser = auth.currentUser
+            val targetEmail = currentUser?.email
+
+            val itemsToShow = items?.filter { it.sellerEmail == targetEmail}
+            if (itemsToShow != null) {
+                val adapter = MyAdapterProfile(itemsToShow) { position ->
                     val action =
                         FourthFragmentDirections.actionFourthFragmentToSecondFragment(position)
                     findNavController().navigate(action)

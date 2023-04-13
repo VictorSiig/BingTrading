@@ -20,7 +20,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="346dp"
-            android:contentDescription="Image of listed item"
+            android:contentDescription="@string/image_of_listed_item"
             tools:src="@tools:sample/avatars" />
 
         <RelativeLayout

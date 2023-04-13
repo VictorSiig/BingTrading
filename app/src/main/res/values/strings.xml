@@ -27,6 +27,8 @@
     <string name="enter_seller_s_phone_here">Enter seller\'s phone here</string>
     <string name="time">Time</string>
     <string name="phone">Phone</string>
+    <string name="image_of_listed_item">Image of listed item</string>
+    <string name="logout">Logout</string>
 
     <array name="sortings">
         <item>Title ascending</item>

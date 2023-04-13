@@ -22,7 +22,7 @@
         android:id="@+id/button_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
+        android:text="@string/logout"
         android:layout_above="@id/bottom_navigation"
         android:layout_centerHorizontal="true"/>
 

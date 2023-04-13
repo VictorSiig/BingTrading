@@ -74,6 +74,7 @@ class ListedItemsRepository {
                 if (response.isSuccessful) {
                     Log.d("APPLE", "Updated: " + response.body())
                     updateMessageLiveData.postValue("Deleted: " + response.body())
+                    getAllListedItems()
                 } else {
                     val message = response.code().toString() + " " + response.message()
                     errorMessageLiveData.postValue(message)

@@ -30,7 +30,6 @@ data class ListedItem(
             "price" -> "$price"
             else -> "$id, $description, $price, $sellerEmail,$sellerPhone, $time, $pictureUrl"
         }
-        //return "$id, $description, $price, $sellerEmail,$sellerPhone, $time, $pictureUrl"
     }
 
     fun humanTime(): String {

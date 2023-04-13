@@ -14,73 +14,83 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description" />
+            android:text="@string/description" />
 
         <EditText
             android:id="@+id/edit_text_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter description here"
-            android:inputType="text" />
+            android:autofillHints="description"
+            android:hint="@string/enter_description_here"
+            android:inputType="text"
+            android:minHeight="48dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Price" />
+            android:text="@string/price" />
 
         <EditText
             android:id="@+id/edit_text_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter price here"
-            android:inputType="numberDecimal" />
+            android:autofillHints="price"
+            android:hint="@string/enter_price_here"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Picture URL" />
+            android:text="@string/picture_url" />
 
         <EditText
             android:id="@+id/edit_text_picture_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter picture URL here"
-            android:inputType="text" />
+            android:autofillHints="url"
+            android:hint="@string/enter_picture_url_here"
+            android:inputType="textUri"
+            android:minHeight="48dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Seller's Email" />
+            android:text="@string/seller_s_email" />
 
         <EditText
             android:id="@+id/edit_text_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter seller's email here"
-            android:inputType="textEmailAddress" />
+            android:autofillHints="emailAddress"
+            android:hint="@string/enter_seller_s_email_here"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Seller's Phone" />
+            android:text="@string/seller_s_phone" />
 
         <EditText
             android:id="@+id/edit_text_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter seller's phone here"
-            android:inputType="phone" />
+            android:autofillHints="phone"
+            android:hint="@string/enter_seller_s_phone_here"
+            android:inputType="phone"
+            android:minHeight="48dp" />
     </LinearLayout>
 
 
     <Button
         android:id="@+id/add_listing_button"
-        android:text="@string/create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_above="@id/bottom_navigation"
-        />
+        android:layout_centerHorizontal="true"
+        android:text="@string/create" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"

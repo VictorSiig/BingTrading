@@ -15,6 +15,18 @@
     <string name="button_to_delete_personal_listing">Button to delete personal listing</string>
     <string name="create">Create</string>
     <string name="sort">Sort</string>
+    <string name="description"> Description</string>
+    <string name="enter_description_here">Enter description here</string>
+    <string name="price">Price</string>
+    <string name="enter_price_here">Enter price here</string>
+    <string name="picture_url">Picture URL</string>
+    <string name="enter_picture_url_here">Enter picture URL here</string>
+    <string name="seller_s_email">Seller\'s Email</string>
+    <string name="enter_seller_s_email_here">Enter seller\'s email here</string>
+    <string name="seller_s_phone">Seller\'s Phone</string>
+    <string name="enter_seller_s_phone_here">Enter seller\'s phone here</string>
+    <string name="time">Time</string>
+    <string name="phone">Phone</string>
 
     <array name="sortings">
         <item>Title ascending</item>

@@ -29,6 +29,7 @@ class ListedItemsViewModel : ViewModel() {
     fun delete(id: Int) {
         repository.delete(id)
     }
+
     fun sortByDescription() {
         repository.sortByDescription()
     }

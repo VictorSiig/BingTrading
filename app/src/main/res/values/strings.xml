@@ -29,10 +29,11 @@
     <string name="phone">Phone</string>
     <string name="image_of_listed_item">Image of listed item</string>
     <string name="logout">Logout</string>
+    <string name="filter">Filter</string>
 
     <array name="sortings">
-        <item>Title ascending</item>
-        <item>Title descending</item>
+        <item>Description ascending</item>
+        <item>Description descending</item>
         <item>Price ascending</item>
         <item>Price descending</item>
     </array>

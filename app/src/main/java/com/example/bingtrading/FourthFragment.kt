@@ -59,6 +59,11 @@ class FourthFragment : Fragment() {
                 }
             }
 
+            binding.swiperefresh.setOnRefreshListener {
+                listedItemsViewModel.reload()
+                binding.swiperefresh.isRefreshing = false
+            }
+
             binding.homeButton.setOnClickListener {
                 findNavController().navigate(R.id.action_fourthFragment_to_FirstFragment)
             }

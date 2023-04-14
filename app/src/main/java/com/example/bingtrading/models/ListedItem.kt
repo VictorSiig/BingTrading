@@ -2,7 +2,6 @@ package com.example.bingtrading.models
 
 import java.io.Serializable
 import java.text.DateFormat
-import kotlin.reflect.typeOf
 
 data class ListedItem(
     val id: Int,

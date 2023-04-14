@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.bingtrading.databinding.FragmentFirstBinding
 import com.example.bingtrading.models.ListedItemsViewModel
 import com.example.bingtrading.models.MyAdapter
+import java.util.*
 
 class FirstFragment : Fragment() {
 
@@ -33,7 +34,8 @@ class FirstFragment : Fragment() {
             binding.recyclerView.visibility = if (items == null) View.GONE else View.VISIBLE
             if (items != null) {
                 val adapter = MyAdapter(items) { position ->
-                    val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(position)
+                    val action =
+                        FirstFragmentDirections.actionFirstFragmentToSecondFragment(position)
                     findNavController().navigate(action)
                 }
                 var columns = 1
@@ -50,7 +52,7 @@ class FirstFragment : Fragment() {
             }
         }
 
-        listedItemsViewModel.errorMessageLiveData.observe(viewLifecycleOwner) {errorMessage ->
+        listedItemsViewModel.errorMessageLiveData.observe(viewLifecycleOwner) { errorMessage ->
             binding.textviewMessage.text = errorMessage
         }
 
@@ -68,6 +70,19 @@ class FirstFragment : Fragment() {
                 2 -> listedItemsViewModel.sortByPrice()
                 3 -> listedItemsViewModel.sortByPriceDescending()
             }
+        }
+
+        binding.buttonFilter.setOnClickListener {
+            fun String.capitalized(): String {
+                return this.replaceFirstChar {
+                    if (it.isLowerCase())
+                        it.titlecase(Locale.getDefault())
+                    else it.toString()
+                }
+            }
+
+            val description = binding.editTextFilter.text.toString().trim().capitalized()
+            listedItemsViewModel.filterByDescription(description)
         }
 
         binding.profileButton.setOnClickListener {

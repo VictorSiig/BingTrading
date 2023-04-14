@@ -16,7 +16,7 @@
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/sorting_layout">
+        android:layout_above="@id/filtering_layout">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -25,23 +25,50 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <LinearLayout
+        android:id="@+id/filtering_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sorting_layout"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_text_filter"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:inputType="text"
+            android:hint="@string/description"
+            android:autofillHints="@string/description" />
+
+        <Button
+            android:id="@+id/button_filter"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="@string/filter" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/sorting_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bottom_navigation">
+        android:layout_above="@+id/bottom_navigation"
+        android:orientation="horizontal">
 
         <Spinner
             android:id="@+id/spinner_sorting"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_height="50dp"
+            android:layout_weight="3"
             android:entries="@array/sortings"
             android:minHeight="48dp" />
 
         <Button
             android:id="@+id/button_sort"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_weight="1"
             android:text="@string/sort" />
     </LinearLayout>
 
@@ -82,4 +109,12 @@
                 android:src="@drawable/baseline_person_outline_24" />
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        style="android:indeterminate"/>
+
 </RelativeLayout>

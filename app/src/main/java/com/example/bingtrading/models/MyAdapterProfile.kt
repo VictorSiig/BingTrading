@@ -7,7 +7,6 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bingtrading.R
-import com.google.android.material.card.MaterialCardView
 
 class MyAdapterProfile<T : ListedItem>(
     private val itemList: List<T>,
@@ -32,7 +31,7 @@ class MyAdapterProfile<T : ListedItem>(
         return ItemViewHolder(view, onItemClicked)
     }
 
-    override fun onBindViewHolder(holder: MyAdapterProfile.ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(itemList[position], onItemClicked, onDeleteItemClickListener)
 
         val item = itemList[position]
@@ -54,7 +53,11 @@ class MyAdapterProfile<T : ListedItem>(
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         private val deleteItemButton: ImageButton = itemView.findViewById(R.id.delete_item_button)
-        fun bind(item: ListedItem, onItemClicked: (Int) -> Unit, onDeleteItemClickListener: ((ListedItem) -> Unit)?) {
+        fun bind(
+            item: ListedItem,
+            onItemClicked: (Int) -> Unit,
+            onDeleteItemClickListener: ((ListedItem) -> Unit)?
+        ) {
             deleteItemButton.setOnClickListener {
                 onDeleteItemClickListener?.invoke(item)
             }

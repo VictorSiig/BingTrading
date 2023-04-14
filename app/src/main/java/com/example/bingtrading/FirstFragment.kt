@@ -31,6 +31,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         listedItemsViewModel.listedItemsLiveData.observe(viewLifecycleOwner) { items ->
+            binding.progressbar.visibility = View.GONE
             binding.recyclerView.visibility = if (items == null) View.GONE else View.VISIBLE
             if (items != null) {
                 val adapter = MyAdapter(items) { position ->
